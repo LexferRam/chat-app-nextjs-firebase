@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import '../styles/globals.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase';
-import Login from './login'
+import Login from '../components/Login'
 import Loading from '../components/Loading';
 import firebase from 'firebase/compat/app';
 
-function MyApp({ Component, pageProps }) {
+import { useRouter } from 'next/router'
 
+function MyApp({ Component, pageProps }) {
+  const router = useRouter()
   const [user, loading] = useAuthState(auth)
 
   useEffect(() => {
@@ -18,6 +20,10 @@ function MyApp({ Component, pageProps }) {
         photoURL: user.photoURL,
       }, { merge: true })
     }
+
+    // if (!user) return router.push('/login', undefined, { shallow: true })
+
+    // if (user) return router.push('/', undefined, { shallow: true })
   }, [user])
 
   if (loading) return <Loading />

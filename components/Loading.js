@@ -5,12 +5,12 @@ const Loading = () => {
         <center style={{ display: 'grid', placeItems: 'center', height: '100vh' }}>
             <div>
                 <img
-                    src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png"
+                    src='./logo.svg'
                     alt=""
                     height={100}
                     height={200}
                 />
-                <Circle size={60} color="#3CBC28" />
+                <Circle size={60} color="rgb(108, 99, 255)" />
             </div>
         </center>
     );
